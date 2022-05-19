@@ -7,18 +7,23 @@ import (
 )
 
 func main() {
-	fmt.Println("Enter Matrix:")
-
-	// var matrixA [9]int
-	matrixA := [9]int{2, -1, 4, 7, 2, 3, 3, -2, 1}
-	matrixB := [9]int{2, -1, 4, 7, 2, 3, 3, -2, 1}
+	var matrixA [9]int
+	var matrixB [9]int
+	// matrixA := [9]int{2, -1, 4, 7, 2, 3, 3, -2, 1}
+	// matrixB := [9]int{2, -1, 4, 7, 2, 3, 3, -2, 1}
 	var request int
 
-	// for i := 0; i < len(matrixA); i++ {
-	// 	fmt.Fscan(os.Stdin, &matrixA[i])
-	// }
+	fmt.Println("Enter matrixA(3x3):")
+	for i := 0; i < len(matrixA); i++ {
+		fmt.Fscan(os.Stdin, &matrixA[i])
+	}
 
-	fmt.Println("=== Matrix A ===")
+	fmt.Println("Enter matrixB(3x3):")
+	for i := 0; i < len(matrixB); i++ {
+		fmt.Fscan(os.Stdin, &matrixB[i])
+	}
+
+	fmt.Println("      === MatrixA ===")
 
 	for i := 0; i < len(matrixA); i++ {
 		if i%3 == 0 && i != 0 {
@@ -28,6 +33,19 @@ func main() {
 			fmt.Print(" | ", matrixA[i], "  | ")
 		} else {
 			fmt.Print(" |  ", matrixA[i], "  | ")
+		}
+	}
+
+	fmt.Println("\n\n      === MatrixB ===")
+
+	for i := 0; i < len(matrixB); i++ {
+		if i%3 == 0 && i != 0 {
+			fmt.Println("")
+		}
+		if matrixB[i] < 0 {
+			fmt.Print(" | ", matrixB[i], "  | ")
+		} else {
+			fmt.Print(" |  ", matrixB[i], "  | ")
 		}
 	}
 
