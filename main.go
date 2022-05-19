@@ -9,19 +9,29 @@ import (
 func main() {
 	fmt.Println("enter matrix")
 
-	var a1, a2, a3, b1, b2, b3, c1, c2, c3 int
+	// var matrixA [9]int
+	matrixA := [9]int{2, -1, 4, 7, 2, 3, 3, -2, 1}
 	var request int
 
-	fmt.Fscan(os.Stdin, &a1, &a2, &a3)
-	fmt.Fscan(os.Stdin, &b1, &b2, &b3)
-	fmt.Fscan(os.Stdin, &c1, &c2, &c3)
+	// for i := 0; i < len(matrixA); i++ {
+	// 	fmt.Fscan(os.Stdin, &matrixA[i])
+	// }
 
 	fmt.Println("=== Matrix A ===")
-	fmt.Println("( ", a1, " | ", a2, " | ", a3, " )")
-	fmt.Println("( ", b1, " | ", b2, " | ", b3, " )")
-	fmt.Println("( ", c1, " | ", c2, " | ", c3, " )")
 
-	fmt.Println("The matrix was saved!")
+	for i := 0; i < len(matrixA); i++ {
+		if i%3 == 0 && i != 0 {
+			fmt.Println("")
+		}
+		if matrixA[i] < 0 {
+			fmt.Print(" | ", matrixA[i], " | ")
+		} else {
+			fmt.Print(" |  ", matrixA[i], " | ")
+		}
+
+	}
+
+	fmt.Println("\nThe matrix was saved!")
 	fmt.Println("Enter the number of the choice: ")
 	fmt.Println("1 - Get Determinant")
 	fmt.Println("2 - something else")
@@ -31,7 +41,7 @@ func main() {
 
 	switch request {
 	case 1:
-		fmt.Println(findDeterminant(a1, a2, a3, b1, b2, b3, c1, c2, c3))
+		fmt.Println(findDeterminant(matrixA[:]))
 	case 2:
 		fmt.Println("two")
 	case 3:
@@ -42,8 +52,20 @@ func main() {
 
 }
 
-func findDeterminant(a1 int, a2 int, a3 int, b1 int, b2 int, b3 int, c1 int, c2 int, c3 int) string {
+func findDeterminant(matrixA []int) string {
 	var determinant int
+
+	a1 := matrixA[0]
+	a2 := matrixA[1]
+	a3 := matrixA[2]
+
+	b1 := matrixA[3]
+	b2 := matrixA[4]
+	b3 := matrixA[5]
+
+	c1 := matrixA[6]
+	c2 := matrixA[7]
+	c3 := matrixA[8]
 
 	determinant = a1*b2*c3 + a2*c1*b3 + b1*c2*a3 - (a3 * b2 * c1) - (b3 * c2 * a1) - (a2 * b1 * c3)
 
