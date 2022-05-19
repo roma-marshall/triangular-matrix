@@ -11,6 +11,7 @@ func main() {
 
 	// var matrixA [9]int
 	matrixA := [9]int{2, -1, 4, 7, 2, 3, 3, -2, 1}
+	matrixB := [9]int{2, -1, 4, 7, 2, 3, 3, -2, 1}
 	var request int
 
 	// for i := 0; i < len(matrixA); i++ {
@@ -24,16 +25,16 @@ func main() {
 			fmt.Println("")
 		}
 		if matrixA[i] < 0 {
-			fmt.Print(" | ", matrixA[i], " | ")
+			fmt.Print(" | ", matrixA[i], "  | ")
 		} else {
-			fmt.Print(" |  ", matrixA[i], " | ")
+			fmt.Print(" |  ", matrixA[i], "  | ")
 		}
 	}
 
 	fmt.Println("\nThe Matrix was saved!")
 	fmt.Println("Enter the number of the choice: ")
 	fmt.Println("1 - Get Determinant")
-	fmt.Println("2 - Get Rang")
+	fmt.Println("2 - Get Sum")
 	fmt.Println("3 - something else")
 
 	fmt.Fscan(os.Stdin, &request)
@@ -42,7 +43,7 @@ func main() {
 	case 1:
 		fmt.Println(findDeterminant(matrixA[:]))
 	case 2:
-		findRang(matrixA[:])
+		findSum(matrixA[:], matrixB[:])
 	case 3:
 		fmt.Println("three")
 	default:
@@ -72,32 +73,20 @@ func findDeterminant(matrixA []int) string {
 	return result
 }
 
-func findRang(matrixA []int) {
-	a1 := matrixA[0]
-	a2 := matrixA[1]
-	a3 := matrixA[2]
+func findSum(matrixA []int, matrixB []int) {
+	matrixR := [9]int{0, 0, 0, 0, 0, 0, 0, 0, 0}
+	for i := 0; i < len(matrixR); i++ {
+		matrixR[i] = matrixA[i] + matrixB[i]
+	}
 
-	// b1 := matrixA[3]
-	// b2 := matrixA[4]
-	// b3 := matrixA[5]
-
-	c1 := matrixA[6]
-	c2 := matrixA[7]
-	c3 := matrixA[8]
-
-	matrixA[0] = (c1 + a1) / 4
-	matrixA[1] = (c2 + a2) / 4
-	matrixA[2] = (c3 + a3) / 4
-
-	for i := 0; i < len(matrixA); i++ {
+	for i := 0; i < len(matrixR); i++ {
 		if i%3 == 0 && i != 0 {
 			fmt.Println("")
 		}
 		if matrixA[i] < 0 {
-			fmt.Print(" | ", matrixA[i], " | ")
+			fmt.Print(" | ", matrixR[i], "  | ")
 		} else {
-			fmt.Print(" |  ", matrixA[i], " | ")
+			fmt.Print(" |  ", matrixR[i], "  | ")
 		}
 	}
-
 }
