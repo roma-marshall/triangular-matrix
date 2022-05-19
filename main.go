@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	fmt.Println("enter matrix")
+	fmt.Println("Enter Matrix:")
 
 	// var matrixA [9]int
 	matrixA := [9]int{2, -1, 4, 7, 2, 3, 3, -2, 1}
@@ -31,7 +31,7 @@ func main() {
 
 	}
 
-	fmt.Println("\nThe matrix was saved!")
+	fmt.Println("\nThe Matrix was saved!")
 	fmt.Println("Enter the number of the choice: ")
 	fmt.Println("1 - Get Determinant")
 	fmt.Println("2 - something else")
@@ -69,7 +69,7 @@ func findDeterminant(matrixA []int) string {
 
 	determinant = a1*b2*c3 + a2*c1*b3 + b1*c2*a3 - (a3 * b2 * c1) - (b3 * c2 * a1) - (a2 * b1 * c3)
 
-	result := "Determinant: "
+	result := "Det(A) = "
 	result += strconv.Itoa(determinant)
 
 	return result
