@@ -9,19 +9,30 @@ func main() {
 	fmt.Println("enter matrix")
 
 	var a1, a2, a3, b1, b2, b3, c1, c2, c3 int
+	var request int
 
 	fmt.Fscan(os.Stdin, &a1, &a2, &a3)
 	fmt.Fscan(os.Stdin, &b1, &b2, &b3)
 	fmt.Fscan(os.Stdin, &c1, &c2, &c3)
 
-	fmt.Println("=== MATRIX ===")
+	fmt.Println("=== Matrix A ===")
 	fmt.Println("( ", a1, " | ", a2, " | ", a3, " )")
 	fmt.Println("( ", b1, " | ", b2, " | ", b3, " )")
 	fmt.Println("( ", c1, " | ", c2, " | ", c3, " )")
 
-	var determinant int = findDeterminant(a1, a2, a3, b1, b2, b3, c1, c2, c3)
+	fmt.Println("The matrix was saved!")
+	fmt.Println("Enter the number of the choice: ")
+	fmt.Println("1. get determinant")
+	fmt.Println("2. something else")
+	fmt.Println("3. something else")
 
-	fmt.Println("Determinant: ", determinant)
+	fmt.Fscan(os.Stdin, &request)
+
+	if request == 1 {
+		var determinant int = findDeterminant(a1, a2, a3, b1, b2, b3, c1, c2, c3)
+
+		fmt.Println("Determinant: ", determinant)
+	}
 
 }
 
