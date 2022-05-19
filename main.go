@@ -7,21 +7,22 @@ import (
 )
 
 func main() {
-	var matrixA [9]int
-	var matrixB [9]int
-	// matrixA := [9]int{2, -1, 4, 7, 2, 3, 3, -2, 1}
-	// matrixB := [9]int{2, -1, 4, 7, 2, 3, 3, -2, 1}
+	// var matrixA [9]int
+	// var matrixB [9]int
+	matrixA := [9]int{2, -1, 4, 7, 2, 3, 3, -2, 1}
+	matrixB := [9]int{2, -1, 4, 7, 2, 3, 3, -2, 1}
 	var request int
+	var multiplier int
 
-	fmt.Println("Enter matrixA(3x3):")
-	for i := 0; i < len(matrixA); i++ {
-		fmt.Fscan(os.Stdin, &matrixA[i])
-	}
+	// fmt.Println("Enter matrixA(3x3):")
+	// for i := 0; i < len(matrixA); i++ {
+	// 	fmt.Fscan(os.Stdin, &matrixA[i])
+	// }
 
-	fmt.Println("Enter matrixB(3x3):")
-	for i := 0; i < len(matrixB); i++ {
-		fmt.Fscan(os.Stdin, &matrixB[i])
-	}
+	// fmt.Println("Enter matrixB(3x3):")
+	// for i := 0; i < len(matrixB); i++ {
+	// 	fmt.Fscan(os.Stdin, &matrixB[i])
+	// }
 
 	fmt.Println("      === MatrixA ===")
 
@@ -53,8 +54,9 @@ func main() {
 	fmt.Println("Enter the number of the choice: ")
 	fmt.Println("1 - Get Determinant")
 	fmt.Println("2 - Get Sum")
-	fmt.Println("3 - something else")
+	fmt.Println("3 - Multiply by")
 
+	fmt.Print("\nYour choise: ")
 	fmt.Fscan(os.Stdin, &request)
 
 	switch request {
@@ -63,7 +65,9 @@ func main() {
 	case 2:
 		findSum(matrixA[:], matrixB[:])
 	case 3:
-		fmt.Println("three")
+		fmt.Print("\nEnter multiplier: ")
+		fmt.Fscan(os.Stdin, &multiplier)
+		multiplyMatrix(matrixA[:], matrixB[:], multiplier)
 	default:
 		fmt.Println("Enter correct number of the choise")
 	}
@@ -105,6 +109,39 @@ func findSum(matrixA []int, matrixB []int) {
 			fmt.Print(" | ", matrixR[i], "  | ")
 		} else {
 			fmt.Print(" |  ", matrixR[i], "  | ")
+		}
+	}
+}
+
+func multiplyMatrix(matrixA []int, matrixB []int, multiplier int) {
+	for i := 0; i < len(matrixA); i++ {
+		matrixA[i] = matrixA[i] * multiplier
+		matrixB[i] = matrixB[i] * multiplier
+	}
+
+	fmt.Println("      === MULTIPLY A ===")
+
+	for i := 0; i < len(matrixA); i++ {
+		if i%3 == 0 && i != 0 {
+			fmt.Println("")
+		}
+		if matrixA[i] < 0 {
+			fmt.Print(" | ", matrixA[i], "  | ")
+		} else {
+			fmt.Print(" |  ", matrixA[i], "  | ")
+		}
+	}
+
+	fmt.Println("\n\n      === MULTIPLY B ===")
+
+	for i := 0; i < len(matrixB); i++ {
+		if i%3 == 0 && i != 0 {
+			fmt.Println("")
+		}
+		if matrixB[i] < 0 {
+			fmt.Print(" | ", matrixB[i], "  | ")
+		} else {
+			fmt.Print(" |  ", matrixB[i], "  | ")
 		}
 	}
 }
