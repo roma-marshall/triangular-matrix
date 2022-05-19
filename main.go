@@ -28,10 +28,16 @@ func main() {
 
 	fmt.Fscan(os.Stdin, &request)
 
-	if request == 1 {
+	switch request {
+	case 1:
 		var determinant int = findDeterminant(a1, a2, a3, b1, b2, b3, c1, c2, c3)
-
 		fmt.Println("Determinant: ", determinant)
+	case 2:
+		fmt.Println("two")
+	case 3:
+		fmt.Println("three")
+	default:
+		fmt.Println("Enter correct number of the choise")
 	}
 
 }
