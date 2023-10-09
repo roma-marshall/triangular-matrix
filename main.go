@@ -85,7 +85,7 @@ func findDeterminant(matrixA []int) string {
 	c2 := matrixA[7]
 	c3 := matrixA[8]
 
-	determinant := a1*b2*c3 + a2*c1*b3 + b1*c2*a3 - (a3 * b2 * c1) - (b3 * c2 * a1) - (a2 * b1 * c3)
+	determinant := a1 * b2 * c3 + a2 * c1 * b3 + b1 * c2 * a3 - (a3 * b2 * c1) - (b3 * c2 * a1) - (a2 * b1 * c3)
 
 	result := "Det(A) = "
 	result += strconv.Itoa(determinant)
@@ -100,7 +100,7 @@ func findSum(matrixA []int, matrixB []int) {
 	}
 
 	for i := 0; i < len(matrixR); i++ {
-		if i%3 == 0 && i != 0 {
+		if i % 3 == 0 && i != 0 {
 			fmt.Println("")
 		}
 		if matrixA[i] < 0 {
@@ -120,7 +120,7 @@ func multiplyMatrix(matrixA []int, matrixB []int, multiplier int) {
 	fmt.Println("      === MULTIPLY A ===")
 
 	for i := 0; i < len(matrixA); i++ {
-		if i%3 == 0 && i != 0 {
+		if i % 3 == 0 && i != 0 {
 			fmt.Println("")
 		}
 		if matrixA[i] < 0 {
@@ -133,7 +133,7 @@ func multiplyMatrix(matrixA []int, matrixB []int, multiplier int) {
 	fmt.Println("\n\n      === MULTIPLY B ===")
 
 	for i := 0; i < len(matrixB); i++ {
-		if i%3 == 0 && i != 0 {
+		if i % 3 == 0 && i != 0 {
 			fmt.Println("")
 		}
 		if matrixB[i] < 0 {
